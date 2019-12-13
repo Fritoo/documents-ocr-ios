@@ -42,7 +42,7 @@ class RecognizeOperation: Operation {
         
         var resultCode = ""
         
-        let count = codes.first!.characters.count
+        let count = codes.first!.count
         for index in 0 ..< count {
             if isCancelled {
                 return

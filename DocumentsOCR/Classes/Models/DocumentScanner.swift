@@ -148,7 +148,7 @@ extension DocumentScanner: CameraViewDelegate {
         timer = Timer.scheduledTimer(timeInterval: takePhotoInterval, target: self, selector: #selector(self.timerTick(sender:)), userInfo: nil, repeats: true)
     }
     
-    func timerTick(sender: Timer) {
+    @objc func timerTick(sender: Timer) {
         imagePicker.takePicture()
     }
 }
@@ -157,8 +157,8 @@ extension DocumentScanner: UIImagePickerControllerDelegate, UINavigationControll
     
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage
-        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let editedImage = info[UIImagePickerController.InfoKey.editedImage.rawValue] as? UIImage
+        let originalImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as! UIImage
         
         let image = editedImage ?? originalImage
         

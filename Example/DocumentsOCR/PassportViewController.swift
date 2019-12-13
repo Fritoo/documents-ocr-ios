@@ -31,7 +31,7 @@ class PassportViewController: UITableViewController {
     
     let countries = Utils.stringFromTxtFile("CountryCodes")!.components(separatedBy: "\n")
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         self.view.endEditing(true)
     }
     
@@ -67,7 +67,7 @@ class PassportViewController: UITableViewController {
         
         let datePicker = UIDatePicker()
         datePicker.addTarget(self, action: #selector(PassportViewController.datePickerValueChanged(_:)), for: .valueChanged)
-        datePicker.datePickerMode = UIDatePickerMode.date
+        datePicker.datePickerMode = UIDatePicker.Mode.date
         
         dobField.delegate = self
         expiredDateField.delegate = self
@@ -76,7 +76,7 @@ class PassportViewController: UITableViewController {
         expiredDateField.inputView = datePicker
     }
     
-    func datePickerValueChanged(_ sender: UIDatePicker) {
+    @objc func datePickerValueChanged(_ sender: UIDatePicker) {
         selectedTextField.text = sender.date.stringDate
     }
     

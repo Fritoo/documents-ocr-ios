@@ -55,7 +55,7 @@ open class DocumentInfo: NSObject {
         
         let regex = try! NSRegularExpression(pattern: Utils.passportPattern, options: [])
         
-        let range = NSRange(location: 0, length: text.characters.count)
+        let range = NSRange(location: 0, length: text.count)
         if let result = regex.firstMatch(in: text, options: [], range: range) {
             
             mrCode = (text as NSString).substring(with: result.range)

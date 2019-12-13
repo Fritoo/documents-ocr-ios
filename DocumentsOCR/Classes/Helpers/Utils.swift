@@ -16,7 +16,7 @@ open class Utils {
     static let passportPattern: String! = Utils.stringFromTxtFile("passportPattern", inBundle: bundle)
     fileprivate static let tesseract = createTesseract()
     
-    open static func stringFromTxtFile(_ fileName: String, inBundle bundle: Bundle = Bundle.main) -> String? {
+    public static func stringFromTxtFile(_ fileName: String, inBundle bundle: Bundle = Bundle.main) -> String? {
         let filePath = bundle.path(forResource: fileName, ofType: "txt")
         let contentData = FileManager.default.contents(atPath: filePath!)
         return NSString(data: contentData!, encoding: String.Encoding.utf8.rawValue) as? String

@@ -25,11 +25,11 @@ extension UIImage {
     }
     
     var recognitionImage: UIImage {
-        return UIImage(cgImage: self.cgImage!, scale: self.scale, orientation: UIImageOrientation.left)
+        return UIImage(cgImage: self.cgImage!, scale: self.scale, orientation: UIImage.Orientation.left)
     }
     
     func save(_ path: String) {
-        let png = UIImagePNGRepresentation(self)
+        let png = self.pngData()
         try? png?.write(to: URL(fileURLWithPath: path), options: [.atomic])
     }
 }

@@ -4,7 +4,7 @@ extension String {
     
     subscript (i: Int) -> Character {
         let index = self.index(self.startIndex, offsetBy: i)
-        return self.characters[index]
+        return self[index]
     }
     
     func substring(from: Int, to: Int) -> String {
